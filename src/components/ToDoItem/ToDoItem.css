@@ -1,0 +1,10 @@
+.table{
+  border-color: blue;
+  border-width: 2px;
+  background-color: aquamarine;
+}
+.row{
+  border-color: blue;
+  border-width: 1px;
+  background-color: aquamarine;
+}
