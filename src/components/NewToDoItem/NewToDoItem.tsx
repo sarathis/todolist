@@ -6,14 +6,15 @@ const NewToDoItem = (props:INewToDoItemProps) => {
   const input=useRef<HTMLInputElement>(null);
   const addNew = () => {
     props.setItemName(input.current?.value);
-    console.log(input.current?.value)
   };
 
   return (
-    <div className="container">
+    <div className="container" data-testid="comp-new-to-do-item">
       <h2 data-testid="header">Add New To Do Item</h2>
-      <input ref={input} className="input-to-do" />
-      <button onClick={addNew}>Add</button>
+      <input ref={input} data-testid="input-to-do" className="input-to-do" />
+      <button data-testid="btn-add"  className="button-to-do" onClick={addNew}>Add</button>
+      <span data-testid="lbl-total">Total Items:{props.total}</span>
+      
     </div>
   );
 };

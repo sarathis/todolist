@@ -5,9 +5,9 @@ const ButtonsSet = (props: IButtonsSetProps) => {
   const { onComplete, onDelete } = props;
 
   return (
-    <div className="buttonContainer">
-      <button onClick={onComplete}>Complete</button>
-      <button onClick={onDelete}>Delete</button>
+    <div className="buttonContainer" data-testid="comp-buttons">
+      <button  data-testid="btn-complete" onClick={onComplete} className="button">Complete</button>
+      <button data-testid="btn-delete" onClick={onDelete} className="button">Delete</button>
     </div>
   );
 };

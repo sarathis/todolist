@@ -4,6 +4,7 @@ import NewToDoItem from "../NewToDoItem/NewToDoItem";
 import { initToDoState, toDoReducer } from "../../state/toDoReducer";
 import ToDoContext from "../../state/toDoContext"
 import { ADD_NEW_ITEM, SET_ITEM_COMPLETED, SET_ITEM_DELETED } from "../../state/constants";
+import "./Home.css";
 
 const Home = () => {
   const [state, dispatch] = useReducer(toDoReducer, initToDoState);
@@ -42,10 +43,13 @@ const Home = () => {
   };
 
   return (
-    <div>
+    <div data-testid="comp-home-base" className="container">
        <ToDoContext.Provider value={toDoState.state} >
-        <NewToDoItem setItemName={setItemName} />
-        <ToDoList source={state.items} onComplete={onComplete} onDelete={onDelete} setSelectedIds={setSelectedIds}/>
+        <NewToDoItem setItemName={setItemName} total={toDoState.state.items.filter((item)=>{
+          return item.deleted===false;
+        }).length}/>
+        <ToDoList source={state.items}
+         onComplete={onComplete} onDelete={onDelete} setSelectedIds={setSelectedIds}/>
        </ToDoContext.Provider>
      
     </div>

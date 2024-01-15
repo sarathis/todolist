@@ -1,11 +1,29 @@
-import React from 'react';
-import { render, screen } from '@testing-library/react';
-import ButtonsSet from './ButtonsSet';
+import React from "react";
+import { render, fireEvent, screen } from "@testing-library/react";
+import ButtonsSet from "./ButtonsSet";
+const completeFunction = jest.fn;
+const deleteFunction = jest.fn;
 
-test('renders learn react link', () => {
-  const fn1=jest.fn;
-  const fn2=jest.fn;
-  render(<ButtonsSet onComplete={fn1} onDelete={fn2} />);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+test("Should render component", () => {
+  render(
+    <ButtonsSet onComplete={completeFunction} onDelete={deleteFunction} />
+  );
+  const item = screen.findByTestId("comp-buttons");
+  expect(item).toBeDefined();
+});
+
+test("Should render complete button", () => {
+  render(
+    <ButtonsSet onComplete={completeFunction} onDelete={deleteFunction} />
+  );
+  const item = screen.findByTestId("btn-complete");
+  expect(item).toBeDefined();
+});
+
+test("Should render delete button", () => {
+  render(
+    <ButtonsSet onComplete={completeFunction} onDelete={deleteFunction} />
+  );
+  const item = screen.findByTestId("btn-delete");
+  expect(item).toBeDefined();
 });

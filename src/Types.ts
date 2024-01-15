@@ -18,6 +18,7 @@ export interface IToDoReducerAction{
 
 export interface INewToDoItemProps{
     setItemName:(itemName:string|undefined)=>void;
+    total:number;
 }
 
 

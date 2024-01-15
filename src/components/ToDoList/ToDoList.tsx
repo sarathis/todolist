@@ -28,16 +28,14 @@ const ToDoList = (props: IToDoListProps) => {
     <div>
       {source.map((item) => {
         return (
-          <div>
-            <ToDoItem
-              itemChecked={itemChecked}
-              id={item.id}
-              completed={item.completed}
-              deleted={item.deleted}
-              name={item.name}
-              key={item.id}
-            />
-          </div>
+          <ToDoItem
+            itemChecked={itemChecked}
+            id={item.id}
+            completed={item.completed}
+            deleted={item.deleted}
+            name={item.name}
+            key={item.id}
+          />
         );
       })}
       {selectedIds.length > 0 && (
